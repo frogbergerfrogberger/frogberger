@@ -101,6 +101,112 @@
       letter-spacing: 0.06em;
     }
 
+    .work img {
+      cursor: zoom-in;
+    }
+
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(5, 5, 5, 0.94);
+      align-items: center;
+      justify-content: center;
+      padding: 48px 64px;
+    }
+
+    .lightbox.is-open {
+      display: flex;
+    }
+
+    .lightbox-image {
+      max-width: 92vw;
+      max-height: 82vh;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      box-shadow: 0 0 40px rgba(0, 0, 0, 0.7);
+    }
+
+    .lightbox-caption {
+      position: absolute;
+      left: 24px;
+      right: 24px;
+      bottom: 18px;
+      color: #faf3d8;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      text-align: center;
+    }
+
+    .lightbox-close,
+    .lightbox-nav {
+      position: absolute;
+      border: 1px solid rgba(250, 243, 216, 0.5);
+      background: rgba(0, 0, 0, 0.28);
+      color: #faf3d8;
+      cursor: pointer;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .lightbox-close {
+      top: 20px;
+      right: 24px;
+      width: 44px;
+      height: 44px;
+      font-size: 2rem;
+      line-height: 1;
+    }
+
+    .lightbox-nav {
+      top: 50%;
+      transform: translateY(-50%);
+      width: 48px;
+      height: 64px;
+      font-size: 2.2rem;
+    }
+
+    .lightbox-nav.prev {
+      left: 20px;
+    }
+
+    .lightbox-nav.next {
+      right: 20px;
+    }
+
+    .lightbox-close:hover,
+    .lightbox-nav:hover {
+      background: #faf3d8;
+      color: #111;
+    }
+
+    @media (max-width: 700px) {
+      .lightbox {
+        padding: 56px 14px 64px;
+      }
+
+      .lightbox-image {
+        max-width: 96vw;
+        max-height: 76vh;
+      }
+
+      .lightbox-nav {
+        width: 38px;
+        height: 54px;
+        font-size: 1.6rem;
+      }
+
+      .lightbox-nav.prev {
+        left: 8px;
+      }
+
+      .lightbox-nav.next {
+        right: 8px;
+      }
+    }
+
     @media (min-width: 900px) {
       .gallery {
         grid-template-columns: repeat(4, 1fr);
@@ -124,8 +230,8 @@
       <a href="flesh.html">flesh</a>
       <a href="creatures.html">creatures</a>
       <a href="archive.html">prints
-      </a>
     </nav>
+  </header>
 
   <main>
     <section class="gallery">
@@ -255,13 +361,100 @@
     </section>
    </main>
 
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox-close" type="button" aria-label="Close enlarged image">&times;</button>
+    <button class="lightbox-nav prev" type="button" aria-label="Previous image">&#10094;</button>
+    <img class="lightbox-image" id="lightboxImage" src="" alt="">
+    <button class="lightbox-nav next" type="button" aria-label="Next image">&#10095;</button>
+    <div class="lightbox-caption" id="lightboxCaption"></div>
+  </div>
+
   <footer>
     <p>© <span id="year"></span> FROGBERGER. All rights reserved.</p>
     <p>Independent visual artist / UK</p>
   </footer>
-
   <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
+    const yearElement = document.getElementById("year");
+    if (yearElement) {
+      yearElement.textContent = new Date().getFullYear();
+    }
+
+    const galleryItems = Array.from(document.querySelectorAll(".work")).filter((item) => item.querySelector("img"));
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImage = document.getElementById("lightboxImage");
+    const lightboxCaption = document.getElementById("lightboxCaption");
+    const closeButton = document.querySelector(".lightbox-close");
+    const previousButton = document.querySelector(".lightbox-nav.prev");
+    const nextButton = document.querySelector(".lightbox-nav.next");
+
+    let currentIndex = 0;
+
+    function openLightbox(index) {
+      const image = galleryItems[index].querySelector("img");
+      const caption = galleryItems[index].querySelector(".caption");
+
+      currentIndex = index;
+      lightboxImage.src = image.src;
+      lightboxImage.alt = image.alt;
+      lightboxCaption.textContent = caption ? caption.textContent : image.alt;
+
+      lightbox.classList.add("is-open");
+      lightbox.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove("is-open");
+      lightbox.setAttribute("aria-hidden", "true");
+      lightboxImage.src = "";
+      document.body.style.overflow = "";
+    }
+
+    function showImage(direction) {
+      currentIndex += direction;
+
+      if (currentIndex < 0) {
+        currentIndex = galleryItems.length - 1;
+      }
+
+      if (currentIndex >= galleryItems.length) {
+        currentIndex = 0;
+      }
+
+      openLightbox(currentIndex);
+    }
+
+    galleryItems.forEach((item, index) => {
+      const image = item.querySelector("img");
+      image.addEventListener("click", () => openLightbox(index));
+    });
+
+    closeButton.addEventListener("click", closeLightbox);
+    previousButton.addEventListener("click", () => showImage(-1));
+    nextButton.addEventListener("click", () => showImage(1));
+
+    lightbox.addEventListener("click", (event) => {
+      if (event.target === lightbox) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (!lightbox.classList.contains("is-open")) return;
+
+      if (event.key === "Escape") {
+        closeLightbox();
+      }
+
+      if (event.key === "ArrowLeft") {
+        showImage(-1);
+      }
+
+      if (event.key === "ArrowRight") {
+        showImage(1);
+      }
+    });
   </script>
 </body>
 </html>
