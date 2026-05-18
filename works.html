@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FROGBERGER</title>
+
+  <style>
+    * { box-sizing: border-box; }
+
+    @font-face {
+      font-family: 'Swung Note';
+      src: url("assets/fonts/Swung%20Note.ttf") format('truetype');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Goudy Heavyface';
+      src: url("assets/fonts/Goudy%20Heavyface.woff") format('woff'),
+           url("assets/fonts/Goudy%20Heavyface.ttf") format('truetype');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    body {
+      margin: 0;
+      background: radial-gradient(circle at top left, rgba(185, 162, 126, 0.16), transparent 34rem), #faf3d8;
+      color: #15363e;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    header { padding: 40px 24px 28px; border-bottom: 1px solid #2a2a2a; text-align:center }
+    .logo { display:block; margin:0 auto 18px; width:clamp(120px,18vw,360px); height:auto }
+    h1 { font-family: 'Swung Note', Arial, Helvetica, sans-serif; margin:0; font-size:clamp(2rem,6vw,4rem); letter-spacing:0.03em; text-transform:uppercase; font-weight:900 }
+    .subtitle { font-family: 'Goudy Heavyface', Arial, Helvetica, sans-serif; margin-top:8px; color:#8f8a82; font-size: 1.7em; letter-spacing:0.08em; text-transform:uppercase }
+    .site-nav { margin-top:12px }
+    .site-nav a { font-family: 'Goudy Heavyface', Arial, Helvetica, sans-serif; color:#15363e; text-decoration:none; padding:6px 10px; border:1px solid transparent }
+
+    main { padding:24px }
+    .gallery { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:18px; align-items:start }
+    .work { border:1px solid #2a2a2a; background:#111; padding:10px }
+    .work img { width:100%; height:auto; display:block; object-fit:contain; background:#050505 }
+    .caption { margin-top:8px; font-size:0.75rem; color:#aaa39a; text-transform:uppercase; letter-spacing:0.06em }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html"><img class="logo" src="assets/images/logo.png" alt="Logo"></a>
+    <h1>frogberger</h1>
+    <div class="subtitle">Featured works
+      
+    </div>
+
+    <nav class="site-nav"><a href="collections.html">Collections</a></nav>
+    
+  </header>
+
+  <main>
+    <section class="gallery">
+      <!-- Example set of images; replace or extend as needed -->
+      <article class="work">
+        <img src="assets/images/work9.JPG" alt="Artwork A">
+        <div class="caption">Cherry</div>
+      </article>
+
+      <article class="work">
+        <img src="assets/images/work64.jpeg" alt="Artwork B">
+        <div class="caption">Work B</div>
+      </article>
+
+      <article class="work">
+        <img src="assets/images/work62.jpg" alt="Artwork C">
+        <div class="caption">Work C</div>
+      </article>
+
+      <article class="work">
+        <img src="assets/images/work80.jpg" alt="Artwork D">
+        <div class="caption">Work D</div>
+      </article>
+
+      <article class="work">
+        <img src="assets/images/work67.jpeg" alt="Artwork E">
+        <div class="caption">Work E</div>
+      </article>
+
+    </section>
+  </main>
+</body>
+</html>
