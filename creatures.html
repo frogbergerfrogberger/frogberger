@@ -3,233 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Frogberger Collections</title>
+  <title>CREATURES</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 
-    @font-face {
-      font-family: 'Swung Note';
-      src: url("assets/fonts/Swung%20Note.ttf") format('truetype');
-      font-weight: normal;
-      font-style: normal;
-      font-display: swap;
-    }
-
-    @font-face {
-      font-family: 'Goudy Heavyface';
-      src: url("assets/fonts/Goudy%20Heavyface.woff") format('woff'),
-           url("assets/fonts/Goudy%20Heavyface.ttf") format('truetype');
-      font-weight: normal;
-      font-style: normal;
-      font-display: swap;
-    }
-
-    body {
-      margin: 0;
-      background: radial-gradient(circle at top left, rgba(185, 162, 126, 0.16), transparent 34rem), #faf3d8;
-      color: #15363e;
-      font-family: Arial, Helvetica, sans-serif;
-    }
-
-    header {
-      padding: 40px 24px 28px;
-      border-bottom: 1px solid #2a2a2a;
-      text-align: center;
-    }
-
-    h1 {
-      font-family: 'Swung Note', Arial, Helvetica, sans-serif;
-      margin: 0;
-      font-size: clamp(2rem, 6vw, 5rem);
-      letter-spacing: 0.03em;
-      text-transform: uppercase;
-      font-weight: 900;
-    }
-
-    .logo {
-      display: block;
-      margin: 0 auto 18px;
-      width: clamp(120px, 18vw, 360px);
-      height: auto;
-    }
-
-        .subtitle {
-      font-family: 'Goudy Heavyface', Arial, Helvetica, sans-serif;
-      margin-top: 8px;
-      color: #3d362bb8;
-      font-size: 1.9rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .site-nav { margin-top:12px }
-    .site-nav a { font-family: 'Goudy Heavyface', Arial, Helvetica, sans-serif; color:#8f8a82; font-size:0.9rem; letter-spacing:0.08em; text-transform:uppercase; text-decoration:none; padding:6px 10px; border:1px solid transparent; display:inline-block }
-
-    main {
-      padding: 24px;
-    }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 18px;
-      align-items: start;
-    }
-
-    .work {
-      border: 1px solid #2a2a2a;
-      background: #111;
-      padding: 10px;
-    }
-
-    .work img {
-      width: 100%;
-      height: auto;
-      display: block;
-      object-fit: contain;
-      background: #050505;
-    }
-
-    .caption {
-      margin-top: 8px;
-      font-size: 0.75rem;
-      color: #aaa39a;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-    }
-
-    .work img {
-      cursor: zoom-in;
-    }
-
-    .lightbox {
-      display: none;
-      position: fixed;
-      inset: 0;
-      z-index: 9999;
-      background: rgba(5, 5, 5, 0.94);
-      align-items: center;
-      justify-content: center;
-      padding: 48px 64px;
-    }
-
-    .lightbox.is-open {
-      display: flex;
-    }
-
-    .lightbox-image {
-      max-width: 92vw;
-      max-height: 82vh;
-      width: auto;
-      height: auto;
-      object-fit: contain;
-      box-shadow: 0 0 40px rgba(0, 0, 0, 0.7);
-    }
-
-    .lightbox-caption {
-      position: absolute;
-      left: 24px;
-      right: 24px;
-      bottom: 18px;
-      color: #faf3d8;
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      text-align: center;
-    }
-
-    .lightbox-close,
-    .lightbox-nav {
-      position: absolute;
-      border: 1px solid rgba(250, 243, 216, 0.5);
-      background: rgba(0, 0, 0, 0.28);
-      color: #faf3d8;
-      cursor: pointer;
-      font-family: Arial, Helvetica, sans-serif;
-    }
-
-    .lightbox-close {
-      top: 20px;
-      right: 24px;
-      width: 44px;
-      height: 44px;
-      font-size: 2rem;
-      line-height: 1;
-    }
-
-    .lightbox-nav {
-      top: 50%;
-      transform: translateY(-50%);
-      width: 48px;
-      height: 64px;
-      font-size: 2.2rem;
-    }
-
-    .lightbox-nav.prev {
-      left: 20px;
-    }
-
-    .lightbox-nav.next {
-      right: 20px;
-    }
-
-    .lightbox-close:hover,
-    .lightbox-nav:hover {
-      background: #faf3d8;
-      color: #111;
-    }
-
-    @media (max-width: 700px) {
-      .lightbox {
-        padding: 56px 14px 64px;
-      }
-
-      .lightbox-image {
-        max-width: 96vw;
-        max-height: 76vh;
-      }
-
-      .lightbox-nav {
-        width: 38px;
-        height: 54px;
-        font-size: 1.6rem;
-      }
-
-      .lightbox-nav.prev {
-        left: 8px;
-      }
-
-      .lightbox-nav.next {
-        right: 8px;
-      }
-    }
-
-    @media (min-width: 900px) {
-      .gallery {
-        grid-template-columns: repeat(4, 1fr);
-      }
-    }
-
-    @media (min-width: 1300px) {
-      .gallery {
-        grid-template-columns: repeat(5, 1fr);
-      }
-    }
-  </style>
+<link rel="stylesheet" href="style2.css" />
 </head>
 
 <body>
-  <header>
-    <a href="index.html"><img class="logo" src="assets/images/logo.png" alt="Logo"></a>
+<header class="site-header">
+    
+<a class="logo-button" href="index.html"></a>
+
+    <nav class="site-nav">
+        <a href="index.html" class="nav-home">home</a>
+    </nav>
     <h1>CREATURES</h1>
     <div class="subtitle">LOREM IPSOM</div>
     <nav class="site-nav">
       <a href="collections.html">back</a>
       <a href="flesh.html">flesh</a>
-      <a href="archive.html">prints
+      <a href="prints.html">printmaking</a>
     </nav>
   </header>
 

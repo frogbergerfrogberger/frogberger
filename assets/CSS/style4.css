@@ -1,0 +1,293 @@
+* {
+      box-sizing: border-box;
+    }
+
+    @font-face {
+      font-family: 'Swung Note';
+      src: url("assets/fonts/Swung%20Note.ttf") format('truetype');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Goudy Heavyface";
+      src: url("assets/fonts/GoudyHeavyface.woff2") format("woff2"),
+           url("assets/fonts/GoudyHeavyface.ttf") format('truetype');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+
+
+    body {
+      margin: 0;
+      background: radial-gradient(circle at top left, rgba(185, 162, 126, 0.16), transparent 34rem), #faf3d8;
+      color: #0d252b;
+      font-family: 'Goudy Heavyface', Arial, Helvetica, sans-serif;
+      font-size: clamp(1.0rem, 6vw, 2.orem);
+      line-height: 1.65;
+      text-rendering: optimizeLegibility;
+      text-align: center;
+    }
+     .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      width: 100%;
+      background: rgba(244, 241, 235, 0.88);
+      border-bottom: 1px solid rgba(28, 27, 25, 0.18);
+      backdrop-filter: blur(16px);
+      text-align: center;
+    }
+
+    .header-inner {
+      width: min(100%, var(--max-width));
+      margin: 0 auto;
+      padding: 0.9rem var(--gutter);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      text-align: center;
+    }
+
+    h1 {
+      font-family: 'Swung Note', Arial, Helvetica, sans-serif;
+      margin: 0px 0 0;
+      font-size: clamp(2rem, 6vw, 5rem);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 900;
+    }
+
+    .logo {
+      display: block;
+      margin: 0 auto 0px;
+      width: clamp(120px, 18vw, 360px);
+      height: clamp(120px, 18vw, 360px);
+    }
+.logo-button {
+  display: block;
+  margin: 0 auto 0px;
+ margin: 0 auto 0px;
+ width: clamp(120px, 18vw, 360px);
+  height: clamp(120px, 18vw, 360px);
+  background-image: url("assets/images/logo.webp");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.logo-button:hover {
+  display: block;
+ margin: 0 auto 0px;
+ width: clamp(120px, 18vw, 360px);
+  height: clamp(120px, 18vw, 360px);
+  background-image: url("assets/images/logo 3.webp");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+    .subtitle {
+      font-family: 'Goudy Heavyface', Arial, Helvetica, sans-serif;
+      margin-top: 8px;
+      color: #224876;
+       font-size: clamp(0.8rem, 6vw, 1.25rem);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .site-nav {
+      margin-top: 12px;
+    }
+
+    .site-nav a {
+      font-family: 'Goudy Heavyface', Arial, Helvetica, sans-serif;
+      color: #7fafb4;
+      font-size: clamp(0.5rem, 6vw, 0.9rem);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 4px 15px;
+      border: 1px solid transparent;
+      display: inline-block;
+    }
+
+    .site-nav a:hover {
+      color: #bb5642;
+    }
+
+    .site-nav a.nav-home {
+      color: #bb5642;
+    }
+
+    .site-nav a.nav-home:hover {
+      color: #8b0000;
+    }
+    
+    main {
+      padding: 27px;
+    }
+
+
+.gallery {
+  columns: 3 220px;
+  column-gap: 18px;
+}
+
+.work {
+  break-inside: avoid;
+  margin-bottom: 18px;
+}
+
+.work img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+    .work {
+      border: 1px solid #0d252b;
+      background: #0d252b;
+      padding: 10px;
+    }
+
+    .work img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: contain;
+      background: #050505;
+      cursor: zoom-in;
+    }
+
+    .caption {
+      margin-top: 8px;
+      font-size: 0.75rem;
+      color: #aaa39a;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    footer {
+      padding: 28px 24px 40px;
+      text-align: center;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #6b6256;
+    }
+
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(122, 121, 121, 0.94);
+      align-items: center;
+      justify-content: center;
+      padding: 48px 64px;
+    }
+
+    .lightbox.is-open {
+      display: flex;
+    }
+
+    .lightbox-image {
+      max-width: 92vw;
+      max-height: 82vh;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      box-shadow: 0 0 40px rgba(143, 141, 141, 0.157);
+    }
+
+    .lightbox-caption {
+      position: absolute;
+      left: 24px;
+      right: 24px;
+      bottom: 18px;
+      color: #faf3d8;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      text-align: center;
+    }
+
+    .lightbox-close,
+    .lightbox-nav {
+      position: absolute;
+      border: 1px solid rgba(250, 243, 216, 0.5);
+      background: rgba(93, 90, 90, 0.28);
+      color: #faf3d8;
+      cursor: pointer;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .lightbox-close {
+      top: 20px;
+      right: 24px;
+      width: 44px;
+      height: 44px;
+      font-size: 2rem;
+      line-height: 1;
+    }
+
+    .lightbox-nav {
+      top: 50%;
+      transform: translateY(-50%);
+      width: 48px;
+      height: 64px;
+      font-size: 2.2rem;
+    }
+
+    .lightbox-nav.prev {
+      left: 20px;
+    }
+
+    .lightbox-nav.next {
+      right: 20px;
+    }
+
+    .lightbox-close:hover,
+    .lightbox-nav:hover {
+      background: #faf3d8;
+      color: #111;
+    }
+
+    @media (min-width: 900px) {
+      .gallery {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    @media (min-width: 1300px) {
+      .gallery {
+        grid-template-columns: repeat(5, 1fr);
+      }
+    }
+
+    @media (max-width: 700px) {
+      .lightbox {
+        padding: 56px 14px 64px;
+      }
+
+      .lightbox-image {
+        max-width: 96vw;
+        max-height: 76vh;
+      }
+
+      .lightbox-nav {
+        width: 38px;
+        height: 54px;
+        font-size: 1.6rem;
+      }
+
+      .lightbox-nav.prev {
+        left: 8px;
+      }
+
+      .lightbox-nav.next {
+        right: 8px;
+      }
+    }
