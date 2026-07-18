@@ -165,6 +165,55 @@
       background: #050505;
       cursor: zoom-in;
     }
+.image-group {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+/* ---------- Two-image layout ---------- */
+
+.image-pair {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.image-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.image-item img {
+    width: 100%;
+    display: block;
+}
+
+.image-item .caption {
+    margin-top: 10px;
+    text-align: center;
+}
+
+/* ---------- Sticker group layout ---------- */
+
+.sticker-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.sticker-group img {
+    width: 100%;
+    display: block;
+}
+
+/* Place the portrait image in the second column */
+.sticker-group .portrait {
+    grid-column: 2;
+    grid-row: 1 / span 3;
+    align-self: center;
+    object-fit: contain;
+}
 
     .caption {
       margin-top: 8px;
