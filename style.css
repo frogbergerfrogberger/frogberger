@@ -35,15 +35,8 @@
     }
 
     @font-face {
-      font-family: "Futura";
-      src: url("assets/fonts/futura.ttf") format("truetype");
-      font-weight: 400;
-      font-display: swap;
-    }
-
-    @font-face {
-      font-family: "Goudy Heavyface";
-      src: url("assets/fonts/Goudy Heavyface.ttf") format("truetype");
+      font-family: "Caprasimo";
+      src: url("assets/fonts/Caprasimo-Regular.ttf") format("truetype");
       font-weight: 300;
       font-display: swap;
     }
@@ -51,6 +44,19 @@
       font-family: "Swung Note";
       src: url("assets/fonts/Swung%20Note.ttf") format("truetype");
       font-weight: 400;
+      font-display: swap;
+    }
+        @font-face {
+      font-family: "geist mono";
+      src: url("assets/fonts/geist-mono-VariableFont_wght.ttf") format("truetype");
+      font-weight: 400;
+      font-display: swap;
+    }
+        @font-face {
+      font-family: "geist mono";
+      src: url("assets/fonts/geist-mono-italic-VariableFont_wght.ttf") format("truetype");
+      font-weight: 400;
+      font-style: italic;
       font-display: swap;
     }
     * {
@@ -100,7 +106,7 @@
     .work-meta,
     .button,
     footer {
-      font-family: "Futura", sans-serif;
+      font-family: "Roboto", sans-serif;
     }
 
     .site-header {
@@ -127,6 +133,7 @@
       display: inline-flex;
       align-items: center;
       gap: 0.65rem;
+      font-family: "geist mono", monospace;
       font-size: 2.0rem;
       font-weight: 700;
       letter-spacing: 0.13em;
@@ -148,7 +155,7 @@
     }
 
     .site-nav a {
-      font-family: 'Goudy Heavyface', Arial, Helvetica, sans-serif;
+      font-family: 'Caprasimo', Arial, Helvetica, sans-serif;
       color: #7fafb4;
       font-size: clamp(0.5rem, 6vw, 0.9rem);
       letter-spacing: 0.08em;
@@ -307,7 +314,7 @@
       padding: 0.45rem 0.65rem;
       background: rgba(17, 17, 17, 0.82);
       color: #ffffff;
-      font-family: "Inconsolata", monospace;
+      font-family: "geist mono", monospace;
       font-size: 0.9rem;
     }
 
@@ -350,7 +357,7 @@
 
     .section-header h2 {
       margin: 0;
-      font-family: "Goudy Heavyface", serif;
+      font-family: "Caprasimo", serif;
       font-size: clamp(2.1rem, 5vw, 4rem);
       line-height: 0.95;
       letter-spacing: 0.01em;
@@ -428,7 +435,7 @@
 
     .work-info h3 {
       margin: 0;
-      font-family: "Goudy Heavyface", serif;
+      font-family: "Caprasimo", serif;
       font-size: clamp(1.2rem, 2.3vw, 1.75rem);
       line-height: 1.05;
       letter-spacing: 0.03em;
@@ -494,7 +501,7 @@
 
     .service-card h3 {
       margin: 0 0 0.65rem;
-      font-family: "Goudy Heavyface", serif;
+      font-family: "Caprasimo", serif;
       font-size: 1.1rem;
       line-height: 1.1;
       text-transform: uppercase;
@@ -518,7 +525,7 @@
 
     .contact-panel h2 {
       margin: 0;
-      font-family: "Goudy Heavyface", serif;
+      font-family: "Caprasimo", serif;
       font-size: clamp(2.4rem, 5vw, 4.5rem);
       line-height: 0.9;
       letter-spacing: -0.01em;
